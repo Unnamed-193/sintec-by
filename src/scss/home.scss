@@ -23,17 +23,21 @@
       url("../img/hero/hero@2x.webp") type("image/webp") 2x,
       url("../img/hero/hero@3x.webp") type("image/webp") 3x);
   background-repeat: no-repeat;
-  background-position: 70% 0;
   background-size: cover;
 
-  position: relative;
-  height: mixins.toRem(668);
+  border-radius: 0 0 mixins.toRem(20) mixins.toRem(20);
 
-  @include mixins.adaptiveValue("padding-top", 49, 33);
+  position: relative;
+  height: mixins.toRem(630);
+
+
+
+  @include mixins.adaptiveValue("padding-top", 93.8, 33);
 
 
   @media (max-width:mixins.toEm(variables.$mobile)) {
     height: mixins.toRem(628);
+    border-radius: 0 0 mixins.toRem(10) mixins.toRem(10);
   }
 
   @media (max-width:mixins.toEm(variables.$mobileSmall)) {
@@ -50,31 +54,23 @@
         url("../img/hero/hero_mobile@2x.webp") type("image/webp") 2x,
         url("../img/hero/hero_mobile@3x.webp") type("image/webp") 3x);
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      background: linear-gradient(180deg, #fff 0%, #fff 36.49%, rgba(255, 255, 255, 0) 100%);
-      opacity: 0.5;
-      width: 100%;
-      height: mixins.toRem(95);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 9%;
-      mix-blend-mode: multiply;
-      background-image: url('../img/hero/blur.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: mixins.toRem(226);
-    }
   }
 
   &__container {
     max-width: mixins.toRem(1350);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      mix-blend-mode: multiply;
+      background-image: url('../img/hero/shadow.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: mixins.toRem(791);
+      height: mixins.toRem(455.4);
+    }
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
       padding-right: 0;
@@ -82,10 +78,6 @@
     }
   }
 
-  &__logo {
-    @include mixins.adaptiveValue("margin-bottom", 54, 17);
-    @include mixins.adaptiveValue("width", 139, 94);
-  }
 
 
   &__inner {
@@ -93,7 +85,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     z-index: 100;
   }
 
@@ -101,67 +93,38 @@
 
   &__title {
     font-weight: 700;
-    line-height: 120%;
-    letter-spacing: -0.02em;
+    line-height: 110%;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     color: var(--white);
-    margin-bottom: mixins.toRem(19);
-
-    span {
-      display: inline-flex;
-      align-items: flex-start;
-      margin-left: mixins.toRem(35.6);
-      gap: mixins.toRem(7.2);
-    }
+    margin-bottom: mixins.toRem(29);
 
 
-    @include mixins.adaptiveValue("font-size", 69, 32);
+    @include mixins.adaptiveValue("font-size", 61, 40);
 
-    @media (max-width:mixins.toEm(variables.$mobile)) {
-      span {
-        font-weight: 300;
-        margin-left: mixins.toRem(-4.4);
-        gap: mixins.toRem(2.4);
-      }
-    }
+    @media (max-width:mixins.toEm(variables.$mobile)) {}
   }
 
-  &__star {
-    flex-shrink: 0;
-
-    @include mixins.adaptiveValue("margin-top", 16.8, 0);
-
-    @media (max-width:mixins.toEm(variables.$mobile)) {
-      width: mixins.toRem(22);
-      height: mixins.toRem(22);
-    }
+  &__title-second {
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: mixins.toRem(0.38);
+    line-height: 110%;
+    color: var(--white);
+    @include mixins.adaptiveValue("font-size", 45, 22);
   }
 
-  &__icon {
-    width: mixins.toRem(204);
-    height: mixins.toRem(105);
-
-    @include mixins.adaptiveValue("width", 204, 187);
-    @include mixins.adaptiveValue("height", 105, 96.25);
-
-    @media (max-width:mixins.toEm(variables.$mobile)) {
-      position: absolute;
-      top: 19.5%;
-      z-index: 100;
-
-      @include mixins.adaptiveValue("left", 202, 158.65, variables.$mobile)
-    }
-  }
 
   &__red {
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
-    height: mixins.toRem(111);
+    height: mixins.toRem(139.8);
     background: var(--red);
     justify-content: center;
+    border-radius: mixins.toRem(20);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
       height: mixins.toRem(162);
@@ -195,13 +158,14 @@
   }
 
   &__slogan {
+    transform: translateX(mixins.toRem(13));
     font-weight: 400;
     line-height: 130%;
     text-align: center;
     color: var(--grey-light);
-    height: mixins.toRem(40);
+    height: mixins.toRem(46.4);
 
-    @include mixins.adaptiveValue("font-size", 14, 10);
+    @include mixins.adaptiveValue("font-size", 12, 10);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
       letter-spacing: -0.02em;
@@ -210,10 +174,10 @@
   }
 
   &__bottles {
-    transform: translateY(mixins.toRem(10));
 
-    @include mixins.adaptiveValue("width", 427, 194);
-    @include mixins.adaptiveValue("height", 393, 232);
+
+    @include mixins.adaptiveValue("width", 344, 194);
+    @include mixins.adaptiveValue("height", 316, 232);
 
     img {
       z-index: 1;
@@ -300,7 +264,7 @@
     align-items: center;
     z-index: 100;
     transform-style: preserve-3d;
-    backface-visibility: hidden; 
+    backface-visibility: hidden;
     @include mixins.adaptiveValue("--mh", 315, 250, variables.$tablet, variables.$mobile);
 
     img {
