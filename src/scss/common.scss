@@ -95,7 +95,7 @@ img, video {
   color: var(--white);
   font-size: mixins.toRem(22);
   line-height: 130%;
-  padding: mixins.toRem(27.6) mixins.toRem(41.2);
+  // padding: mixins.toRem(27.6) mixins.toRem(41.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,6 +103,12 @@ img, video {
   overflow: hidden;
   position: relative;
   text-transform: uppercase;
+  white-space: nowrap;
+
+  @include mixins.adaptiveValue("padding-top", 27.6, 17);
+  @include mixins.adaptiveValue("padding-bottom", 27.6, 17);
+  @include mixins.adaptiveValue("padding-right", 41.2, 20);
+  @include mixins.adaptiveValue("padding-left", 41.2, 20);
 
   .loaded & {
     transition: box-shadow 0.3s ease 0s;
@@ -137,11 +143,6 @@ img, video {
     }
   }
 
-  @media (max-width:mixins.toEm(variables.$laptop)) {
-    padding: mixins.toRem(12) mixins.toRem(34.5);
-    font-size: mixins.toRem(18);
-    text-align: center;
-  }
 
   @media (max-width:mixins.toEm(variables.$mobile)) {
     width: 100%;
