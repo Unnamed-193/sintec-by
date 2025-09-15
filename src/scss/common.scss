@@ -105,10 +105,10 @@ img, video {
   text-transform: uppercase;
   white-space: nowrap;
 
-  @include mixins.adaptiveValue("padding-top", 27.6, 17);
-  @include mixins.adaptiveValue("padding-bottom", 27.6, 17);
-  @include mixins.adaptiveValue("padding-right", 41.2, 20);
-  @include mixins.adaptiveValue("padding-left", 41.2, 20);
+  @include mixins.adaptiveValue("padding-top", 27.6, 11);
+  @include mixins.adaptiveValue("padding-bottom", 27.6, 11);
+  @include mixins.adaptiveValue("padding-right", 41.2, 31);
+  @include mixins.adaptiveValue("padding-left", 41.2, 34);
 
   .loaded & {
     transition: box-shadow 0.3s ease 0s;
@@ -145,8 +145,6 @@ img, video {
 
 
   @media (max-width:mixins.toEm(variables.$mobile)) {
-    width: 100%;
-    font-size: mixins.toRem(18);
     border-radius: mixins.toRem(5);
   }
 
