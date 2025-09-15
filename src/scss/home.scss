@@ -260,15 +260,24 @@
   &__container {
     max-width: mixins.toRem(1350);
     display: flex;
-    gap: 37px;
+    gap: mixins.toRem(37);
 
     padding-top: mixins.toRem(117.2);
     padding-bottom: mixins.toRem(130);
 
+    @media (max-width:mixins.toEm(variables.$laptop)) {
+      flex-direction: column;
+    }
+
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      padding-top: mixins.toRem(190);
+    }
+
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      padding-top: mixins.toRem(176.4);
+      padding-top: mixins.toRem(148);
       padding-bottom: mixins.toRem(90);
+      gap: mixins.toRem(61);
     }
   }
 
@@ -279,6 +288,7 @@
   &__right {
     flex: 1;
     margin-top: 14px;
+    @include mixins.adaptiveValue("margin-top", 14, 0, 1920, variables.$laptop);
   }
 
 
@@ -289,8 +299,9 @@
     text-transform: uppercase;
     color: var(--black);
 
-    @include mixins.adaptiveValue("margin-bottom", 14, 20.4);
+    @include mixins.adaptiveValue("margin-bottom", 14, 10.8);
     @include mixins.adaptiveValue("font-size", 45, 32);
+
 
   }
 
@@ -302,7 +313,8 @@
     @include mixins.adaptiveValue("font-size", 22, 16);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      line-height: 140%;
+      line-height: 138%;
+      letter-spacing: 0;
     }
   }
 
@@ -310,6 +322,10 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      gap: 40px;
+    }
   }
 
   &__list-item {
@@ -323,24 +339,41 @@
     padding: 21.1px 0 26px 30px;
     border-radius: 15px;
     width: 100%;
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      padding-left: 20px;
+      padding-bottom: 20px;
+      @include mixins.adaptiveValue("padding-right", 85, 20, variables.$mobile, 375);
+    }
   }
 
   &__item-title {
     font-weight: 500;
-    font-size: 22px;
     line-height: 120%;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: var(--red);
     margin-bottom: 11px;
+
+    @include mixins.adaptiveValue("font-size", 22, 16);
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      font-weight: 400;
+      letter-spacing: 0;
+      padding-right: 62px;
+    }
   }
 
   &__item-text {
     max-width: mixins.toRem(518);
     font-weight: 400;
-    font-size: 16px;
+    font-size: mixins.toRem(16);
     line-height: 140%;
     color: var(--grey-dark);
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      // max-width: mixins.toRem(305);
+    }
   }
 
   &__item-circle {
@@ -355,6 +388,15 @@
     border-radius: 50% 0 0 50%;
     height: 152px;
     width: 132px;
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      justify-content: center;
+      top: 11%;
+      right: -3%;
+    }
   }
 
   &__item-icon {
@@ -368,6 +410,11 @@
     transform: translateY(-50%);
     height: 113px;
     width: 113px;
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      height: 77px;
+      width: 77px;
+    }
   }
 
 
