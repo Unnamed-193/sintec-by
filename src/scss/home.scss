@@ -287,7 +287,7 @@
 
   &__right {
     flex: 1;
-    margin-top: 14px;
+    margin-top: mixins.toRem(14);
     @include mixins.adaptiveValue("margin-top", 14, 0, 1920, variables.$laptop);
   }
 
@@ -321,10 +321,10 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: mixins.toRem(30);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      gap: 40px;
+      gap: mixins.toRem(40);
     }
   }
 
@@ -336,14 +336,16 @@
 
   &__item-content {
     background: var(--grey-light);
-    padding: 21.1px 0 26px 30px;
-    border-radius: 15px;
+    padding: mixins.toRem(21.1) 0 mixins.toRem(26) mixins.toRem(30);
+    border-radius: mixins.toRem(15);
     width: 100%;
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      padding-left: 20px;
-      padding-bottom: 20px;
+      padding-left: mixins.toRem(20);
+      padding-bottom: mixins.toRem(20);
+      border-radius: mixins.toRem(10);
       @include mixins.adaptiveValue("padding-right", 85, 20, variables.$mobile, 375);
+
     }
   }
 
@@ -353,14 +355,14 @@
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: var(--red);
-    margin-bottom: 11px;
+    margin-bottom: mixins.toRem(11);
 
     @include mixins.adaptiveValue("font-size", 22, 16);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
       font-weight: 400;
       letter-spacing: 0;
-      padding-right: 62px;
+      padding-right: mixins.toRem(62);
     }
   }
 
@@ -371,9 +373,7 @@
     line-height: 140%;
     color: var(--grey-dark);
 
-    @media (max-width:mixins.toEm(variables.$mobile)) {
-      // max-width: mixins.toRem(305);
-    }
+    
   }
 
   &__item-circle {
@@ -386,12 +386,12 @@
     right: 0;
     background-color: #fff;
     border-radius: 50% 0 0 50%;
-    height: 152px;
-    width: 132px;
+    height: mixins.toRem(152);
+    width: mixins.toRem(132);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      height: 100px;
-      width: 100px;
+      height: mixins.toRem(100);
+      width: mixins.toRem(100);
       border-radius: 50%;
       justify-content: center;
       top: 11%;
@@ -408,12 +408,12 @@
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
-    height: 113px;
-    width: 113px;
+    height: mixins.toRem(113);
+    width: mixins.toRem(113);
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
-      height: 77px;
-      width: 77px;
+      height: mixins.toRem(77);
+      width: mixins.toRem(77);
     }
   }
 
