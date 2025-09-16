@@ -263,7 +263,7 @@
     gap: mixins.toRem(37);
 
     padding-top: mixins.toRem(117.2);
-    padding-bottom: mixins.toRem(130);
+    padding-bottom: mixins.toRem(133.2);
 
     @media (max-width:mixins.toEm(variables.$laptop)) {
       flex-direction: column;
@@ -373,7 +373,7 @@
     line-height: 140%;
     color: var(--grey-dark);
 
-    
+
   }
 
   &__item-circle {
@@ -426,8 +426,122 @@
 
 //==========================================================================================
 
+.sale {
+
+  &__red {
+    padding-top: 50px;
+    padding-bottom: 281px;
+    border-radius: 20px;
+    background: linear-gradient(343deg, #bc1f29 0%, #e2000f 100%);
+  }
+
+
+  &__container {
+    max-width: mixins.toRem(1345);
+    padding-bottom: 40px;
+
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+
+    margin-bottom: 24px;
+    max-width: 746px;
+  }
+
+  &__steps {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__step {
+    flex: 1 1 calc(100% / 3);
+
+  }
+
+
+  &__count {
+    font-weight: 700;
+    font-size: 57px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.6;
+
+    display: flex;
+    gap: 10px;
+  }
+
+  &__count--border::after {
+    content: '';
+    border-bottom: 2px dashed var(--white);
+    width: 100%;
+    transform: translateY(-12px);
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  &__form {
+    margin-top: -226px;
+  }
+
+  &__data {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    text-align: center;
+    color: #5f6471;
+  }
+}
+
+.b24-form-wrapper.b24-form-border-bottom {
+  border-bottom: none !important;
+}
+
+.b24-form-header-padding,
+.b24-form-sign {
+  padding: 0 !important;
+}
+
+.b24-form-content {
+  padding: 53px 49px 40px 50px !important;
+}
+
+.b24-form-wrapper {
+  background: var(--grey-light) !important;
+  border-radius: 20px !important;
+}
+
+
 //==========================================================================================
 
+.questions {
+  &__container {
+    max-width: mixins.toRem(1345);
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+}
 
 //==========================================================================================
 .ozon {
