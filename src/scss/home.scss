@@ -540,16 +540,22 @@
   &__container {
     max-width: mixins.toRem(1345);
     display: flex;
-    gap: 41px;
+
+    @include mixins.adaptiveValue("gap", 41, 20);
+
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      flex-direction: column;
+    }
   }
 
   &__title {
     font-weight: 400;
-    font-size: 45px;
     line-height: 120%;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: var(--black);
+
+    @include mixins.adaptiveValue("font-size", 45, 32);
   }
 
   &__list {
@@ -582,12 +588,17 @@
     }
 
     &.active .accordion__button {
-      padding-bottom: 14px;
+      @include mixins.adaptiveValue("padding-bottom", 14, 11);
     }
 
     &:last-child .accordion__button {
-      padding: 13px 20px;
-      padding-right: 39px;
+      padding: mixins.toRem(13) mixins.toRem(20);
+      padding-right: mixins.toRem(39);
+
+      @media (max-width:mixins.toEm(variables.$mobile)) {
+        padding: mixins.toRem(15.4) mixins.toRem(10);
+        padding-right: mixins.toRem(20);
+      }
     }
 
   }
@@ -595,19 +606,27 @@
   &__button {
     display: flex;
     justify-content: space-between;
+    gap: mixins.toRem(20);
     width: 100%;
-    padding: 21.5px 20px;
-    padding-right: 39px;
+    padding: mixins.toRem(21.5) mixins.toRem(20);
+    padding-right: mixins.toRem(39);
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      padding: mixins.toRem(15.2) mixins.toRem(10);
+      padding-right: mixins.toRem(20);
+    }
+
   }
 
   &__title {
     font-weight: 400;
-    font-size: 20px;
     line-height: 130%;
     text-align: center;
     color: var(--black);
     text-align: left;
     transition: color 0.3s ease;
+
+    @include mixins.adaptiveValue("font-size", 20, 16);
   }
 
   &__icon {
@@ -620,10 +639,11 @@
       left: 50%;
       transform-origin: center center;
       transform: translate(-50%, -50%) rotate(0);
-      width: 2px;
-      height: 20px;
       background-color: var(--black);
       transition: transform 0.3s ease;
+
+      @include mixins.adaptiveValue("width", 2, 1);
+      @include mixins.adaptiveValue("height", 20, 14);
     }
 
     &::before {
@@ -632,9 +652,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
-      height: 2px;
       background-color: var(--black);
+
+      @include mixins.adaptiveValue("width", 20, 15);
+      @include mixins.adaptiveValue("height", 2, 1);
     }
   }
 
@@ -645,14 +666,23 @@
   }
 
   &__content-inner {
-    padding: 0 20px 21.5px 20px;
+    padding: 0 mixins.toRem(20) mixins.toRem(21.5) mixins.toRem(20);
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      padding: 0 mixins.toRem(20) mixins.toRem(8.7) mixins.toRem(10);
+    }
   }
 
   &__answer {
     font-weight: 400;
-    font-size: 16px;
     line-height: 130%;
     color: var(--grey-dark);
+    @include mixins.adaptiveValue("font-size", 16, 14);
+
+    @media (max-width:mixins.toEm(variables.$mobile)) {
+      line-height: 150%;
+      color: var(--black);
+    }
   }
 }
 
