@@ -535,7 +535,7 @@
 
 .questions {
   padding-top: 112px;
-  padding-bottom: 140px;
+  padding-bottom: 141px;
 
   &__container {
     max-width: mixins.toRem(1345);
@@ -559,11 +559,11 @@
   }
 
   &__list {
-    margin-top: 11px;
+    margin-top: mixins.toRem(11);
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: mixins.toRem(20);
   }
 }
 
@@ -571,7 +571,7 @@
 
   &__item {
     background: #f5f7f8;
-    border-radius: 8px;
+    border-radius: mixins.toRem(8);
 
     &.active .accordion__title {
       color: var(--red);
