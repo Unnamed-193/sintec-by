@@ -5,6 +5,7 @@
 import './getCurrentYear.js';
 import './gsap/components/components.js';
 import './gsap/hero/hero.js';
+import './accordion/accordion.js';
 
 
 import 'swiper/css';

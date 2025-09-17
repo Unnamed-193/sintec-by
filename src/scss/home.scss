@@ -495,7 +495,10 @@
   }
 
   &__form {
-    margin-top: -226px;
+    margin-top: -266px;
+    width: 1096px;
+    height: 682px;
+    background-color: grey;
   }
 
   &__data {
@@ -526,11 +529,18 @@
 }
 
 
+
+
 //==========================================================================================
 
 .questions {
+  padding-top: 112px;
+  padding-bottom: 140px;
+
   &__container {
     max-width: mixins.toRem(1345);
+    display: flex;
+    gap: 41px;
   }
 
   &__title {
@@ -540,6 +550,109 @@
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: var(--black);
+  }
+
+  &__list {
+    margin-top: 11px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.accordion {
+
+  &__item {
+    background: #f5f7f8;
+    border-radius: 8px;
+
+    &.active .accordion__title {
+      color: var(--red);
+    }
+
+    &.active .accordion__icon::after {
+      transform-origin: center center;
+      transform: translate(-50%, -50%) rotate(90deg);
+      background-color: var(--red);
+    }
+
+    &.active .accordion__icon::before {
+      opacity: 0;
+    }
+
+    &.active .accordion__button {
+      padding-bottom: 14px;
+    }
+
+    &:last-child .accordion__button {
+      padding: 13px 20px;
+      padding-right: 39px;
+    }
+
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 21.5px 20px;
+    padding-right: 39px;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--black);
+    text-align: left;
+    transition: color 0.3s ease;
+  }
+
+  &__icon {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) rotate(0);
+      width: 2px;
+      height: 20px;
+      background-color: var(--black);
+      transition: transform 0.3s ease;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 2px;
+      background-color: var(--black);
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  &__content-inner {
+    padding: 0 20px 21.5px 20px;
+  }
+
+  &__answer {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: var(--grey-dark);
   }
 }
 
