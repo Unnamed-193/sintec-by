@@ -270,13 +270,12 @@
     }
 
     @media (max-width:mixins.toEm(variables.$tablet)) {
-      padding-top: mixins.toRem(190);
+      padding-top: mixins.toRem(144.4);
     }
 
 
     @media (max-width:mixins.toEm(variables.$mobile)) {
       padding-top: mixins.toRem(148);
-      padding-bottom: mixins.toRem(90);
       gap: mixins.toRem(61);
     }
   }
@@ -427,14 +426,30 @@
 //==========================================================================================
 
 .sale {
+  position: relative;
 
-  // @include mixins.adaptiveValue("font-size", 12, 10);
+  &::after {
+    content: '';
+    width: 274px;
+    height: 286px;
+    position: absolute;
+    background-image: url('../img/sale/coin_big.svg');
+    background-size: cover;
+    top: 1%;
+    right: 23%;
+  }
 
-  // @media (max-width:mixins.toEm(variables.$tablet)) {
-  //   letter-spacing: -0.02em;
-  //   order: 3;
-  //   transform: translateX(mixins.toRem(0));
-  // }
+  &::before {
+    content: '';
+    width: 162px;
+    height: 167px;
+    position: absolute;
+    background-image: url(../img/sale/coin_big.svg);
+    background-size: cover;
+    transform: rotate(16deg);
+    top: -2.4%;
+    right: 18%;
+  }
 
   &__red {
     padding-bottom: mixins.toRem(281);
@@ -513,7 +528,7 @@
       height: 37px;
       width: 2px;
       opacity: 0.6;
-      transform: translate(mixins.toRem(36.8), mixins.toRem(17.6)) ;
+      transform: translate(mixins.toRem(36.8), mixins.toRem(17.6));
     }
 
   }
@@ -530,14 +545,14 @@
 
   &__form {
     margin-top: -266px;
-    width: 1096px;
-    height: 682px;
-    background-color: grey;
+    // width: 1096px;
+    // height: 682px;
+    // background-color: grey;
 
-    @media (max-width:mixins.toEm(variables.$mobile)) {
-      width: 344px;
-      height: 815px;
-    }
+    // @media (max-width:mixins.toEm(variables.$mobile)) {
+    //   width: 344px;
+    //   height: 815px;
+    // }
   }
 
   &__data {
@@ -578,8 +593,12 @@
 //==========================================================================================
 
 .questions {
-  padding-top: 112px;
-  padding-bottom: 141px;
+  padding-top: mixins.toRem(112);
+  padding-bottom: mixins.toRem(141);
+
+  @media (max-width:mixins.toEm(variables.$tablet)) {
+    padding-bottom: mixins.toRem(236);
+  }
 
   &__container {
     max-width: mixins.toRem(1345);
@@ -739,32 +758,41 @@
   }
 
   @media (max-width:mixins.toEm(variables.$mobile)) {
-    background: linear-gradient(101deg,
-        #783DBF 16%,
-        #0069FF 58%,
-        #F1107E 90%);
+    background: linear-gradient(80deg,
+        #0069FF 16%,
+        #783DBF 58%,
+      );
 
-    border-radius: mixins.toRem(20);
+    border-radius: mixins.toRem(0);
   }
 
 
   &__container {
-    max-width: mixins.toRem(1285);
-    padding-left: mixins.toRem(20);
-    padding-right: mixins.toRem(20);
-    padding-bottom: 0;
+    max-width: mixins.toRem(1385);
+    // padding-left: mixins.toRem(0);
+    // padding-right: mixins.toRem(143.2);
 
     @include mixins.adaptiveValue("padding-top", 84, 84);
-    // @include mixins.adaptiveValue("padding-bottom", 96.8, 84);
+    @include mixins.adaptiveValue("padding-bottom", 0, 84, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("padding-left", 0, 20, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("padding-right", 143.2, 20, 1920, variables.$tablet);
+
+
 
   }
 
   &__img {
-    transform: translate(-18%, -36%);
-    @include mixins.adaptiveValue("width", 403.8, 345);
-    @include mixins.adaptiveValue("height", 708.2, 146);
 
+    transform: translate(0, -36%);
+    @include mixins.adaptiveValue("width", 403.8, 228);
+    @include mixins.adaptiveValue("height", 708.2, 226);
 
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      transform: translate(0, mixins.toRem(29));
+      margin-bottom: mixins.toRem(39.4);
+      width: mixins.toRem(228);
+      height: mixins.toRem(226);
+    }
 
   }
 
@@ -773,9 +801,10 @@
     justify-content: space-between;
 
     @media (max-width:mixins.toEm(variables.$tablet)) {
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
       text-align: center;
+      transform: translateY(-55%);
     }
   }
 
@@ -783,7 +812,8 @@
     display: flex;
 
     @media (max-width:mixins.toEm(variables.$tablet)) {
-      transform: translateX(0);
+      flex-direction: column;
+      align-items: center;
     }
   }
 
@@ -793,14 +823,19 @@
     line-height: 130%;
     text-transform: uppercase;
     color: var(--white);
-    transform: translateX(mixins.toRem(-74));
+    // transform: translateX(mixins.toRem(-74));
     max-width: mixins.toRem(526);
     @include mixins.adaptiveValue("font-size", 32, 26);
 
-    @media (max-width:mixins.toEm(variables.$mobile)) {
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      font-weight: 400;
       text-transform: none;
       @include mixins.adaptiveValue("margin-bottom", 20, 32);
 
+    }
+
+    @media (max-width:mixins.toEm(variables.$mobileSmall)) {
+      max-width: mixins.toRem(327);
     }
   }
 
@@ -808,13 +843,15 @@
     width: 100%;
     max-width: mixins.toRem(294);
     border-radius: mixins.toRem(8);
-    transform: translateX(mixins.toRem(-40));
+    position: relative;
+    right: -30px;
 
     @include mixins.adaptiveValue("font-size", 22, 18);
-    @include mixins.adaptiveValue("height", 81, 47);
+    @include mixins.adaptiveValue("height", 81, 58);
+    @include mixins.adaptiveValue("right", -30, 0, 1920, variables.$tablet);
 
     @media (max-width:mixins.toEm(variables.$tablet)) {
-      align-self: center;
+      max-width: mixins.toRem(335);
     }
   }
 }
@@ -825,10 +862,11 @@
   position: relative;
   z-index: 1000;
   border-radius: mixins.toRem(20) mixins.toRem(20) 0 0;
-  @include mixins.adaptiveValue("margin-top", -495, 71);
+  @include mixins.adaptiveValue("margin-top", -495, -300, 1920, variables.$tablet);
 
-  @media (max-width:mixins.toEm(variables.$mobile)) {
-    margin-top: -15px;
+  @media (max-width:mixins.toEm(variables.$tablet)) {
+    border-radius: mixins.toRem(10) mixins.toRem(10) 0 0;
+    @include mixins.adaptiveValue("margin-top", -250, -270, variables.$tablet, variables.$mobileSmall);
   }
 
   &__container {
