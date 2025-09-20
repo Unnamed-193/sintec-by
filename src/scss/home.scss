@@ -430,25 +430,38 @@
 
   &::after {
     content: '';
-    width: 274px;
-    height: 286px;
+
     position: absolute;
     background-image: url('../img/sale/coin_big.svg');
     background-size: cover;
-    top: 1%;
-    right: 23%;
+
+
+    @include mixins.adaptiveValue("width", 274, 165, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("height", 286, 174, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("top", 17, -60);
+    @include mixins.adaptiveValue("right", 443, 105);
+
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      background-image: url('../img/sale/mobile/coin_big.svg');
+    }
   }
 
   &::before {
     content: '';
-    width: 162px;
-    height: 167px;
+
     position: absolute;
-    background-image: url(../img/sale/coin_big.svg);
+    background-image: url("../img/sale/coin_min.webp");
     background-size: cover;
-    transform: rotate(16deg);
-    top: -2.4%;
-    right: 18%;
+    // transform: rotate(16deg);
+
+    @include mixins.adaptiveValue("width", 165, 94, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("height", 200, 126, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("top", -43, -80);
+    @include mixins.adaptiveValue("right", 354, 38);
+
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      background-image: url("../img/sale/mobile/coin_min.webp");
+    }
   }
 
   &__red {
