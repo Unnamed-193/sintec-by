@@ -598,11 +598,60 @@
 .b24-form-wrapper {
   background: var(--grey-light) !important;
   border-radius: 20px !important;
+  max-width: mixins.toRem(1096) !important;
 }
 
+.b24-form-field {
+  margin: 0 !important;
+}
 
+form  * {
+  margin: 0 !important;
+}
 
+form>div:first-child {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 71px) 15px 11px 50px 59px;
+  grid-column-gap: 20px;
+  grid-row-gap: 35px;
+}
 
+.b24-form-field-name {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.b24-form-field-email {
+  grid-area: 2 / 1 / 3 / 5;
+}
+
+.b24-form-field-text {
+  grid-area: 1 / 5 / 3 / 9;
+}
+
+form>div:first-child .b24-form-field:nth-child(3) {
+  grid-area: 3 / 1 / 4 / 9;
+}
+
+form>div:first-child .b24-form-field:nth-child(4) {
+  grid-area: 4 / 1 / 5 / 5;
+}
+
+form>div:first-child .b24-form-field:nth-child(6) {
+  grid-area: 4 / 5 / 5 / 9;
+}
+
+form>div:first-child .b24-form-field:nth-child(5) {
+  grid-area: 5 / 1 / 6 / 5;
+}
+
+form>div:first-child .b24-form-field:nth-child(7) {
+  grid-area: 5 / 5 / 6 / 9;
+}
+
+form>div:first-child .b24-form-field:nth-child(8) {
+  grid-area: 6 / 1 / 7 / 9;
+}
 //==========================================================================================
 
 .questions {
