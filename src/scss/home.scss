@@ -252,6 +252,53 @@
   }
 }
 
+.headlights {
+  position: absolute;
+  mix-blend-mode: screen;
+
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: mixins.toRem(331);
+  height: mixins.toRem(239);
+
+
+  @include mixins.adaptiveValue("top", 164, 164, 1920, variables.$mobileSmall);
+  @include mixins.adaptiveValue("right", 685, -37, 1920, variables.$mobileSmall);
+
+  @media (max-width:mixins.toEm(variables.$mobileSmall)) {
+    @include mixins.adaptiveValue("top", 170, 186.4, variables.$mobileSmall);
+    @include mixins.adaptiveValue("right", 80, -0.2, variables.$mobileSmall);
+  }
+
+  &__left {
+    width: mixins.toRem(109);
+    height: mixins.toRem(121);
+
+    @media (max-width:mixins.toEm(variables.$mobileSmall)) {
+      width: mixins.toRem(89);
+      height: mixins.toRem(101);
+    }
+
+  }
+
+  &__right {
+    position: absolute;
+    right: 3%;
+    top: -3%;
+    width: mixins.toRem(199);
+    height: mixins.toRem(237);
+
+    @media (max-width:mixins.toEm(variables.$mobileSmall)) {
+      width: mixins.toRem(169);
+      height: mixins.toRem(207);
+
+      @include mixins.adaptiveValue("top", 12, 8, variables.$mobileSmall);
+      @include mixins.adaptiveValue("right", 76, 99.4, variables.$mobileSmall);
+    }
+  }
+}
+
 //====================================================================================================
 .ow {
   background-color: var(--white);
@@ -432,7 +479,15 @@
     content: '';
 
     position: absolute;
-    background-image: url('../img/sale/coin_big.svg');
+    background-image: url('../img/sale/coin_big.webp');
+    background-image: -webkit-image-set(url("../img/sale/coin_big.webp") 1x,
+        url("../img/sale/coin_big@2x.webp") 2x,
+        url("../img/sale/coin_big@3x.webp") 3x);
+
+    /* Для Firefox */
+    background-image: image-set(url("../img/sale/coin_big.webp") type("image/webp") 1x,
+        url("../img/sale/coin_big@2x.webp") type("image/webp") 2x,
+        url("../img/sale/coin_big@3x.webp") type("image/webp") 3x);
     background-size: cover;
 
 
@@ -441,9 +496,7 @@
     @include mixins.adaptiveValue("top", 17, -60);
     @include mixins.adaptiveValue("right", 443, 105);
 
-    @media (max-width:mixins.toEm(variables.$tablet)) {
-      background-image: url('../img/sale/mobile/coin_big.svg');
-    }
+  
   }
 
   &::before {
@@ -451,17 +504,24 @@
 
     position: absolute;
     background-image: url("../img/sale/coin_min.webp");
+    background-image: -webkit-image-set(url("../img/sale/coin_min.webp") 1x,
+        url("../img/sale/sale/coin_min@2x.webp") 2x,
+        url("../img/sale/coin_min@3x.webp") 3x);
+
+    /* Для Firefox */
+    background-image: image-set(url("../img/sale/coin_min.webp") type("image/webp") 1x,
+        url("../img/sale/coin_min@2x.webp") type("image/webp") 2x,
+        url("../img/sale/coin_min@3x.webp") type("image/webp") 3x);
+    background-size: cover;
     background-size: cover;
     // transform: rotate(16deg);
 
-    @include mixins.adaptiveValue("width", 165, 94, 1920, variables.$tablet);
-    @include mixins.adaptiveValue("height", 200, 126, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("width", 171.4, 94, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("height", 208, 126, 1920, variables.$tablet);
     @include mixins.adaptiveValue("top", -43, -80);
     @include mixins.adaptiveValue("right", 354, 38);
 
-    @media (max-width:mixins.toEm(variables.$tablet)) {
-      background-image: url("../img/sale/mobile/coin_min.webp");
-    }
+  
   }
 
   &__red {
@@ -605,7 +665,7 @@
   margin: 0 !important;
 }
 
-form  * {
+form * {
   margin: 0 !important;
 }
 
@@ -627,6 +687,10 @@ form>div:first-child {
 
 .b24-form-field-text {
   grid-area: 1 / 5 / 3 / 9;
+}
+
+.b24-form-field-file .b24-form-control-required {
+  display: none;
 }
 
 form>div:first-child .b24-form-field:nth-child(3) {
@@ -652,6 +716,7 @@ form>div:first-child .b24-form-field:nth-child(7) {
 form>div:first-child .b24-form-field:nth-child(8) {
   grid-area: 6 / 1 / 7 / 9;
 }
+
 //==========================================================================================
 
 .questions {
