@@ -553,12 +553,13 @@
     background-size: cover;
     // transform: rotate(16deg);
 
-    @include mixins.adaptiveValue("width", 171.4, 94, 1920, variables.$tablet);
-    @include mixins.adaptiveValue("height", 208, 126, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("width", 171.4, 100.4, 1920, variables.$tablet);
+    @include mixins.adaptiveValue("height", 208, 129.2, 1920, variables.$tablet);
     @include mixins.adaptiveValue("top", -43, -80);
     @include mixins.adaptiveValue("right", 354, 38);
 
-
+  // 129.2
+    // 100.4
   }
 
   &__red {
@@ -655,7 +656,13 @@
     color: var(--white);
 
     @include mixins.adaptiveValue("font-size", 22, 20);
+
+    @media (max-width:mixins.toEm(variables.$tablet)) {
+      font-weight: 400;
+    }
   }
+
+
 
   &__form {
     margin-top: mixins.toRem(-223);
@@ -737,7 +744,7 @@ form * {
   @include mixins.adaptiveValue("font-size", 18, 16);
 
   @media (max-width:mixins.toEm(variables.$tablet)) {
-      font-weight: 400 !important;
+    font-weight: 400 !important;
   }
 }
 
