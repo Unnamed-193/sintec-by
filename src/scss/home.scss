@@ -788,6 +788,18 @@ form>div:first-child {
   height: mixins.toRem(62) !important;
 }
 
+.b24-form-field-name input:focus,
+.b24-form-field-email input:focus,
+.b24-form-field-text textarea:focus {
+  border: 1px solid #5f6471 !important;
+}
+
+.b24-form-field-name input:hover,
+.b24-form-field-email input:hover,
+.b24-form-field-text textarea:hover {
+  border: 1px solid #959eab !important;
+}
+
 .b24-form-control-label {
   font-family: variables.$fontFamily !important;
 }
