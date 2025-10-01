@@ -1096,6 +1096,7 @@ form>div:nth-child(2) .b24-form-field .b24-form-control-container input::before 
   width: mixins.toRem(14);
   height: mixins.toRem(11);
   background-image: url('../img/sale/mark.svg');
+  background-repeat: no-repeat;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

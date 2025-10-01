@@ -56,10 +56,10 @@ function initLineAnimation() {
   const lineTl = gsap.timeline({
     scrollTrigger: {
       trigger: lineSection,
-      start: 'top 30%',
+      start: 'top 80%',
       toggleActions: 'play none none none',
       once: true,
-      markers: false
+      markers: true
     }
   });
 
